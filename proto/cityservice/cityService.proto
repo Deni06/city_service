@@ -1,0 +1,103 @@
+syntax = "proto3";
+
+package go.micro.srv.CityService;
+
+service City {
+	rpc Healthcheck(EmptyRequest) returns (Response) {}
+	rpc List(FilterPaging) returns (ListCityResponse) {}
+	rpc Detail(CityKey) returns (CityData) {}
+	rpc Add(CityData) returns (CityData) {}
+	rpc Edit(CityData) returns (CityData) {}
+	rpc Remove(CityKey) returns (IsRemoved) {}
+    rpc ListDistrict(FilterPaging) returns (ListDistrictResponse) {}
+    rpc DetailDistrict(CityKey) returns (DistrictData) {}
+    rpc AddDistrict(DistrictData) returns (DistrictData) {}
+    rpc EditDistrict(DistrictData) returns (DistrictData) {}
+    rpc RemoveDistrict(CityKey) returns (IsRemoved) {}
+    rpc AddProvince(ProvinceData) returns (ProvinceData){}
+    rpc EditProvince(ProvinceData) returns (ProvinceData){}
+    rpc RemoveProvince(ProvinceData) returns (Response){}
+    rpc DetailProvince(ProvinceData) returns (ProvinceData){}
+    rpc ListProvince(FilterPaging) returns (ListProvinceData){}
+}
+
+message ProvinceData{
+    int32 id=1;
+    string province_name =2;
+}
+
+message ListProvinceData{
+    repeated ProvinceData provinces=1;
+    Paging paging = 2;
+}
+
+message EmptyRequest {
+}
+
+message Response {
+	string msg = 1;
+}
+
+message ListCityResponse{
+    repeated CityData cities = 1;
+    Paging paging = 2;
+}
+
+message ListDistrictResponse{
+    repeated DistrictData district = 1;
+    Paging paging = 2;
+}
+
+message CityData{
+    int32 city_id =1;
+    string city_name=2;
+    int32 province_id=3;
+    string province_name=4;
+}
+
+message DistrictData{
+    int32 district_id =1;
+    string district_name=2;
+    int32 city_id =3;
+    string city_name=4;
+}
+
+message FilterPaging {
+    FilterKey filter=1;
+    Paging pagination=2;
+}
+
+message IsRemoved{
+    bool is_removed =1;
+}
+
+message CityKey{
+    int32 id =1;
+}
+
+message FilterKey{
+    int32 province_id =1;
+    string keyword = 2;
+    int32 city_id =3;
+}
+
+message Paging{
+    int32 page=1;
+    int32 per_page=2;
+    int32 count=3;
+}
+
+message RoleData {
+    int32 role_id = 1;
+    string role_name = 2;
+    int32 project_id=3;
+    repeated PermissionData permissions = 4;
+
+}
+
+message PermissionData {
+    int32 permission_id = 1;
+    string permission_name = 2;
+    int32 project_id = 3;
+    int32 site_id = 4;
+}

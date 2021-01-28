@@ -1,0 +1,26 @@
+nohup: ignoring input
+2019/07/02 14:56:00 Initializing logging reporter
+2019/07/02 14:56:00 Transport [http] Listening on [::]:39307
+2019/07/02 14:56:00 Broker [http] Listening on [::]:36085
+2019/07/02 14:56:00 Registering node: go.micro.srv.city-9e65d885-1ca6-4601-9c67-ffe2d3f1880d
+2019/07/02 14:57:00 Call Healthcheck Service
+2019/07/02 14:57:00 Reporting span 1962419e81ba696:1962419e81ba696:0:1
+2019/07/02 14:57:01 Call Healthcheck Service
+2019/07/02 14:57:01 Reporting span 4dfe15f1158c9a81:4dfe15f1158c9a81:0:1
+2019/07/02 14:57:02 ERROR: error when flushing the buffer: write udp 127.0.0.1:41121->127.0.0.1:6831: write: connection refused
+2019/07/02 14:57:04 Call List City
+2019/07/02 14:57:04 start execute : SELECT city_id, city_name,description,project_id FROM city where true 
+2019/07/02 14:57:04 pq: M:"column \"description\" does not exist" P:"27" F:"parse_relation.c" L:"3293" R:"errorMissingColumn" S:"ERROR" V:"ERROR" C:"42703"
+2019/07/02 14:57:04 Reporting span 59ed2f04e411af16:5864637154c7fa79:59ed2f04e411af16:1
+2019/07/02 14:57:04 Reporting span 59ed2f04e411af16:59ed2f04e411af16:0:1
+2019/07/02 14:57:16 Call List City
+2019/07/02 14:57:16 start execute : SELECT city_id, city_name,description,project_id FROM city where true 
+2019/07/02 14:57:16 pq: L:"3293" R:"errorMissingColumn" S:"ERROR" V:"ERROR" C:"42703" M:"column \"description\" does not exist" P:"27" F:"parse_relation.c"
+2019/07/02 14:57:16 Reporting span 4bbce12eb0bff880:4aa58f595b22142d:4bbce12eb0bff880:1
+2019/07/02 14:57:16 Reporting span 4bbce12eb0bff880:4bbce12eb0bff880:0:1
+2019/07/02 14:57:17 ERROR: error when flushing the buffer: write udp 127.0.0.1:41121->127.0.0.1:6831: write: connection refused
+2019/07/02 14:58:12 Received Detail City request
+2019/07/02 14:58:12 start execute : SELECT city_id, city_name, description, project_id FROM city where city_id = 3
+2019/07/02 14:58:12 pq: V:"ERROR" C:"42703" M:"column \"description\" does not exist" P:"28" F:"parse_relation.c" L:"3293" R:"errorMissingColumn" S:"ERROR"
+2019/07/02 14:58:12 Reporting span 6b924297dae5863d:4bc3cf83bed14688:6b924297dae5863d:1
+2019/07/02 14:58:12 Reporting span 6b924297dae5863d:6b924297dae5863d:0:1
